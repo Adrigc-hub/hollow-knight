@@ -14,42 +14,45 @@ var player_ref := null
 var health := max_health
 
 func _ready():
-    origin = global_position
-    health = max_health
+	origin = global_position
+	health = max_health
 
 func _physics_process(delta):
-    # find player if exists
-    if player_ref == null:
-        var players = get_tree().get_nodes_in_group("player")
-        if players.size() > 0:
-            player_ref = players[0]
+	# find player if exists
+	if player_ref == null:
+		var players = get_tree().get_nodes_in_group("player")
+		if players.size() > 0:
+			player_ref = players[0]
 
-    # simple state transitions
-    if player_ref:
-        var dist = global_position.distance_to(player_ref.global_position)
-        if dist < attack_range:
-            state = "attack"
-        elif dist < detection_range:
-            state = "chase"
-        else:
-            state = "patrol"
+	# simple state transitions
+	if player_ref:
+		var dist = global_position.distance_to(player_ref.global_position)
+		if dist < attack_range:
+			state = "attack"
+		elif dist < detection_range:
+			state = "chase"
+		else:
+			state = "patrol"
 
-    match state:
-        "patrol":
-            velocity.x = dir * speed
-            velocity = move_and_slide(velocity, Vector2.UP)
-            if abs(global_position.x - origin.x) > 120:
-                dir *= -1
-        "chase":
-            var sign_dir = sign(player_ref.global_position.x - global_position.x)
-            velocity.x = sign_dir * chase_speed
-            velocity = move_and_slide(velocity, Vector2.UP)
-        "attack":
-            # placeholder: stop and maybe trigger damage
-            velocity.x = 0
-            velocity = move_and_slide(velocity, Vector2.UP)
+	match state:
+		"patrol":
+			velocity.x = dir * speed
+			velocity.y += 980 * delta  # gravity
+			velocity = move_and_slide()
+			if abs(global_position.x - origin.x) > 120:
+				dir *= -1
+		"chase":
+			var sign_dir = sign(player_ref.global_position.x - global_position.x)
+			velocity.x = sign_dir * chase_speed
+			velocity.y += 980 * delta  # gravity
+			velocity = move_and_slide()
+		"attack":
+			# placeholder: stop and maybe trigger damage
+			velocity.x = 0
+			velocity.y += 980 * delta  # gravity
+			velocity = move_and_slide()
 
 func take_damage(amount):
-    health -= amount
-    if health <= 0:
-        queue_free()
+	health -= amount
+	if health <= 0:
+		queue_free()
