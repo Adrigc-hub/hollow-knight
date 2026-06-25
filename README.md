@@ -1,22 +1,34 @@
-# Proyecto Godot - Metroidvania: Espíritu de Zorro (starter)
+# Godot Metroidvania - FoxSpirit (Ampliado)
 
-Este repositorio contiene un proyecto inicial de Godot (plantilla) para crear un juego Metroidvania inspirado en la idea del espíritu de zorro. No contiene assets comerciales ni contenidos protegidos por derechos de autor.
+Este README amplía el proyecto inicial con escenas y mecánicas adicionales: Jardín de los Ajolotes, boss base "El Tardígrado", controles móviles, UI e implementación extendida del jugador (wall-cling, charged attack, esencias). Todo son plantillas y placeholders; reemplaza assets por arte propio.
 
-Qué incluye:
-- Estructura mínima de carpetas (scenes, src, assets/placeholders)
-- Escenas básicas: Main.tscn, Player.tscn
-- Scripts principales en GDScript: player.gd, enemy.gd, gate.gd, game.gd, save.gd
-- README con instrucciones básicas para abrir y ejecutar
+Archivos añadidos / modificados principales:
+- scenes/JardinDeAjolotes.tscn
+- scenes/Boss_Tardigrado.tscn
+- scenes/UI.tscn
+- scenes/MobileControls.tscn
+- scenes/LevelTemplate.tscn
+- src/player.gd (actualizado: wall cling, charged attack, essences)
+- src/boss_tardigrado.gd
+- src/ui.gd
+- src/mobile_controls.gd
+- assets/placeholders/sprites/player_placeholder.png (placeholder)
+- assets/placeholders/sprites/enemy_placeholder.png
+- assets/placeholders/tileset_placeholder.png
+- assets/placeholders/audio/README.txt
 
-Cómo usar:
-1) Clona el repo: git clone https://github.com/Adrigc-hub/hollow-knight.git
-2) Asegúrate de estar en la rama main: git checkout main
-3) Abre Godot 4, selecciona "Import" o "Open" y abre la carpeta del repo (contiene project.godot)
-4) En el Editor -> Project -> Project Settings -> Input Map, añade las acciones mencionadas en src/README o el README.md
-5) Añade el script src/game.gd como Autoload/Singleton (Project -> Project Settings -> AutoLoad -> Path: res://src/game.gd Name: Global)
+Cómo probar las nuevas escenas
+1. Abre Godot 4 y carga el proyecto.
+2. Asegúrate de que Global (res://src/game.gd) esté en AutoLoad.
+3. Abre scenes/Main.tscn o scenes/LevelTemplate.tscn y añade un instance de scenes/Player.tscn si no está ya.
+4. Cambia la escena principal temporalmente a scenes/LevelTemplate.tscn (Project -> Project Settings -> Run -> Main Scene) y pulsa Play.
 
-Cómo comprobar que los archivos están en el repositorio (desde tu máquina):
-- git pull origin main
-- ls (verás las carpetas scenes, src, assets)
+Controles:
+- Keyboard: A/D o flechas para moverse, Space para saltar, LShift para dash, X para ataque (manten para cargar), E para cambiar esencia (debug), Esc para pause.
+- Mobile: carga scenes/MobileControls.tscn y prueba en el editor con la pantalla táctil visible (TouchScreenButton simulado).
 
-Si quieres que añada CI, ejemplos de export o más escenas, dime y los agrego.
+Notas:
+- Los TileMap y AnimatedSprite2D referencian placeholders (vacíos). Antes de probar colisiones visuales, coloca una CollisionShape2D en Player.tscn.
+- Para desbloquear puertas: llama Global.give_ability("ability_key") o recoge un objeto en la escena (puedo añadir pickups si lo deseas).
+
+Si quieres que programe más (IA de enemigos, diseño de mapa real, animaciones, diálogo NPC, sistema de guardado por bancos), dime qué priorizamos y lo hago en el siguiente commit.

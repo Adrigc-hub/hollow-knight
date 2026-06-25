@@ -1,0 +1,20 @@
+[gd_scene load_steps=1 format=3]
+[ext_resource path="res://src/mobile_controls.gd" type="Script" id=1]
+
+[node name="MobileControls" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="LeftButton" type="TouchScreenButton" parent="."]
+action = "ui_left"
+
+[node name="RightButton" type="TouchScreenButton" parent="."]
+action = "ui_right"
+
+[node name="JumpButton" type="TouchScreenButton" parent="."]
+action = "jump"
+
+[node name="DashButton" type="TouchScreenButton" parent="."]
+action = "dash"
+
+[node name="AttackButton" type="TouchScreenButton" parent="."]
+action = "attack"
