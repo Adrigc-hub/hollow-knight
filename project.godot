@@ -1,5 +1,7 @@
-[gd_resource type="ConfigFile" load_steps=2 format=2]
-
 [application]
-config/name="FoxSpirit-Metroidvania-Starter"
-config/description="Proyecto inicial de Godot 4 para un Metroidvania con protagonista espíritu de zorro."
+config/name="Hollow Knight - Cherry Team (placeholder)"
+run/main_scene="res://src/scenes/Level1.tscn"
+
+[rendering]
+quality/driver/driver_name="GLES3"
+

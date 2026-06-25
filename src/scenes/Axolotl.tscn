@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource path="res://src/scripts/axolotl.gd" type="Script" id=1]
+
+[node name="Axolotl" type="Area2D"]
+script = ExtResource( 1 )
+position = Vector2(400, 220)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Axolotl"]
+shape = SubResource( 1 )
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 10.0

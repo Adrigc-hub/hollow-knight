@@ -1,34 +1,28 @@
-# Godot Metroidvania - FoxSpirit (Ampliado)
+Hollow Knight - Cherry Team (placeholder)
 
-Este README amplía el proyecto inicial con escenas y mecánicas adicionales: Jardín de los Ajolotes, boss base "El Tardígrado", controles móviles, UI e implementación extendida del jugador (wall-cling, charged attack, esencias). Todo son plantillas y placeholders; reemplaza assets por arte propio.
+Este repository contiene un prototipo en Godot (placeholders) inspirado en Hollow Knight con un personaje "zorro", animaciones sencillas y un "jardín de ajolotes".
 
-Archivos añadidos / modificados principales:
-- scenes/JardinDeAjolotes.tscn
-- scenes/Boss_Tardigrado.tscn
-- scenes/UI.tscn
-- scenes/MobileControls.tscn
-- scenes/LevelTemplate.tscn
-- src/player.gd (actualizado: wall cling, charged attack, essences)
-- src/boss_tardigrado.gd
-- src/ui.gd
-- src/mobile_controls.gd
-- assets/placeholders/sprites/player_placeholder.png (placeholder)
-- assets/placeholders/sprites/enemy_placeholder.png
-- assets/placeholders/tileset_placeholder.png
-- assets/placeholders/audio/README.txt
+Qué incluye:
+- Estructura de proyecto Godot 4 (project.godot)
+- src/scenes/Level1.tscn, Player.tscn, Axolotl.tscn, HUD.tscn
+- src/scripts/player.gd, axolotl.gd, level_manager.gd
 
-Cómo probar las nuevas escenas
-1. Abre Godot 4 y carga el proyecto.
-2. Asegúrate de que Global (res://src/game.gd) esté en AutoLoad.
-3. Abre scenes/Main.tscn o scenes/LevelTemplate.tscn y añade un instance de scenes/Player.tscn si no está ya.
-4. Cambia la escena principal temporalmente a scenes/LevelTemplate.tscn (Project -> Project Settings -> Run -> Main Scene) y pulsa Play.
+Controles (por defecto):
+- Flechas izquierda/derecha: mover
+- Flecha arriba / espacio: saltar
+- Enter (ui_accept): atacar
+- Shift (ui_select): dash
 
-Controles:
-- Keyboard: A/D o flechas para moverse, Space para saltar, LShift para dash, X para ataque (manten para cargar), E para cambiar esencia (debug), Esc para pause.
-- Mobile: carga scenes/MobileControls.tscn y prueba en el editor con la pantalla táctil visible (TouchScreenButton simulado).
+Cómo abrir:
+1) Clona el repo y cambia a la rama feature/cherry-team:
+   git clone https://github.com/Adrigc-hub/hollow-knight
+   cd hollow-knight
+   git checkout feature/cherry-team
+2) Abre Godot 4.1 y selecciona el proyecto (project.godot) o usa "Import".
+3) Ejecuta la escena res://src/scenes/Level1.tscn
 
-Notas:
-- Los TileMap y AnimatedSprite2D referencian placeholders (vacíos). Antes de probar colisiones visuales, coloca una CollisionShape2D en Player.tscn.
-- Para desbloquear puertas: llama Global.give_ability("ability_key") o recoge un objeto en la escena (puedo añadir pickups si lo deseas).
+Siguientes pasos que puedo hacer por ti:
+- Configurar GitHub Actions para exportar HTML5 y publicar en GitHub Pages (esto te permite jugar en navegador sin instalar Godot).
+- Añadir animaciones más elaboradas, enemigos, SFX, y pulido.
 
-Si quieres que programe más (IA de enemigos, diseño de mapa real, animaciones, diálogo NPC, sistema de guardado por bancos), dime qué priorizamos y lo hago en el siguiente commit.
+Si quieres que publique el demo en Pages ahora, responde "Publish" y configuraré la acción y Pages.
