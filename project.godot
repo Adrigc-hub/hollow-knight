@@ -1,5 +1,61 @@
-[gd_resource type="ConfigFile" load_steps=2 format=2]
+[gd_resource type="ConfigFile" load_steps=1 format=3]
 
 [application]
-config/name="FoxSpirit-Metroidvania-Starter"
-config/description="Proyecto inicial de Godot 4 para un Metroidvania con protagonista espíritu de zorro."
+config/name="FoxSpirit-Metroidvania"
+config/description="Metroidvania indie con espíritu de zorro: Hollow Knight + Undertale + Scavengers"
+run/main_scene="res://scenes/LevelTemplate.tscn"
+config/features=PackedStringArray("4.0")
+
+[autoload]
+Global="*res://src/game.gd"
+
+[input]
+
+ui_accept={
+"deadzone": 0.5,
+"events": [Key { keycode=4194309 }, Key { keycode=32 }]
+}
+ui_select={
+"deadzone": 0.5,
+"events": [Key { keycode=32 }]
+}
+ui_cancel={
+"deadzone": 0.5,
+"events": [Key { keycode=4194305 }]
+}
+ui_focus_next={
+"deadzone": 0.5,
+"events": [Key { keycode=4194320 }]
+}
+ui_focus_prev={
+"deadzone": 0.5,
+"events": [Key { keycode=4194321 }]
+}
+ui_left={
+"deadzone": 0.5,
+"events": [Key { keycode=4194319 }, Key { keycode=65 }]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [Key { keycode=4194320 }, Key { keycode=68 }]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [Key { keycode=4194318 }, Key { keycode=87 }]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [Key { keycode=4194322 }, Key { keycode=83 }]
+}
+ui_dash={
+"deadzone": 0.5,
+"events": [Key { keycode=65470 }]
+}
+ui_attack={
+"deadzone": 0.5,
+"events": [Key { keycode=88 }]
+}
+ui_essence={
+"deadzone": 0.5,
+"events": [Key { keycode=69 }]
+}
