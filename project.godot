@@ -1,0 +1,5 @@
+[gd_resource type="ConfigFile" load_steps=2 format=2]
+
+[application]
+config/name="FoxSpirit-Metroidvania-Starter"
+config/description="Proyecto inicial de Godot 4 para un Metroidvania con protagonista espíritu de zorro."
